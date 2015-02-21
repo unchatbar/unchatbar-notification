@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" ng-app="unchatbar-notification">
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>unchatbar connection</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/offcanvas.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <!-- endbuild -->
+</head>
+<body>
+<div data-ng-controller="demoCtrl">
+    <h1>Stream Notification</h1>
+    <button ng-click="startStreamCall()" type="submit" class="btn btn-default" >start Stream Call</button>
+    <button ng-click="stopStreamCall()" type="submit" class="btn btn-default" >Stop Stream Call</button>
+    <br><hr><br>
+    <h1>Message Notification</h1> <br />
+    <form>
+        <div class="form-group">
+            <label for="message">message Text</label>
+            <input type="input" data-ng-model="message.message" class="form-control" id="message"
+                   placeholder="Enter new Mesage text">
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="receiveNewMessage()">receive new message</button>
+    </form>
+</div>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<!-- build:js(.) scripts/oldieshim.js -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<!-- Service -->
+<script src="scripts/service/notify.js"></script>
+
+<!-- run -->
+<script src="scripts/run.js"></script>
+<!-- endbuild -->
+<script>
+    angular.module('unchatbar-notification').controller('demoCtrl',
+            function ($scope,$rootScope) {
+                $scope.message = {};
+                $scope.startStreamCall  = function () {
+                    $rootScope.$broadcast('StreamUpdate',[{clientA : 'data',clientB : 'data'}]);
+                };
+                $scope.stopStreamCall  = function () {
+                    $rootScope.$broadcast('StreamUpdate',[]);
+                };
+
+                $scope.receiveNewMessage = function () {
+                    $rootScope.$broadcast('MessageUpdateUnreadMessage',$scope.message );
+                }
+            }
+    );
+</script>
+</body>
+</html>
