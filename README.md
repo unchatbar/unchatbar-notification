@@ -1,4 +1,4 @@
-# Unchatbar Data Chat
+# Unchatbar Notification
 [![Build Status](https://travis-ci.org/unchatbar/unchatbar-notification.svg?branch=master)](https://travis-ci.org/unchatbar/unchatbar-notification)
 
 notification for chat/stream
