@@ -68,10 +68,10 @@
             function ($scope,$rootScope) {
                 $scope.message = {};
                 $scope.startStreamCall  = function () {
-                    $rootScope.$broadcast('StreamUpdate',[{clientA : 'data',clientB : 'data'}]);
+                    $rootScope.$broadcast('StreamUpdate',{waitingClients : [{clientA : 'data',clientB : 'data'}]});
                 };
                 $scope.stopStreamCall  = function () {
-                    $rootScope.$broadcast('StreamUpdate',[]);
+                    $rootScope.$broadcast('StreamUpdate',{waitingClients:[]});
                 };
 
                 $scope.receiveNewMessage = function () {
