@@ -21,7 +21,7 @@ angular.module('unchatbar-notification')
                  * @returns {String} path to soundfile for client text message
                  *
                  */
-                _textMessageAudioFile: 'sounds/ping.mp3',
+                _textMessageAudioFile: '/sounds/ping.mp3',
 
                 /**
                  * @ngdoc methode
@@ -51,7 +51,7 @@ angular.module('unchatbar-notification')
                  * @returns {String} path to soundfile for stream call
                  *
                  */
-                _streamCallAudioFile: 'sounds/streamSound.mp3',
+                _streamCallAudioFile: '/sounds/streamSound.mp3',
 
                 /**
                  * @ngdoc methode
