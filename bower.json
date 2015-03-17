@@ -8,6 +8,7 @@
     "bootstrap-css-only": "~3.3.0",
     "lodash": "~2.4.1",
     "components-font-awesome": "~4.2.0"
+
   },
   "main": [
     "app/scripts/app.js",
