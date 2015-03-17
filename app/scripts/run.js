@@ -12,6 +12,7 @@ angular.module('unchatbar-notification').run(['$rootScope','Notify',
         Notify._initStreamSound();
         Notify._initMessageSound();
         Notify._getNotificationPermission();
+
         $rootScope.$on('StreamUpdate', function (event, data) {
             if (data.waitingClients.length > 0) {
                 Notify.streamCallStart();
@@ -23,6 +24,8 @@ angular.module('unchatbar-notification').run(['$rootScope','Notify',
             Notify.textMessage(message);
         });
 
+        var body = document.getElementsByTagName('body')[0];
+        body.addEventListener('ontouchstart', Notify.loadAudio, false);
 
     }
 ]);

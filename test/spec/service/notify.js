@@ -50,6 +50,31 @@ describe('Serivce: Notify', function () {
             });
         });
 
+        describe('loadAudio' , function(){
+            beforeEach(function(){
+                notifyService._streamCallSound = {
+                 load : function(){}
+                };
+                notifyService._textMessageSound = {
+                    load : function(){}
+                };
+                spyOn(notifyService._streamCallSound,'load').and.returnValue(true);
+                spyOn(notifyService._textMessageSound,'load').and.returnValue(true);
+            });
+            it('should call `Notify._streamCallSound.load`' , function(){
+                notifyService.loadAudio();
+
+                expect(notifyService._streamCallSound.load).toHaveBeenCalled();
+            });
+
+            it('should call `Notify._textMessageSound.load`' , function(){
+                notifyService.loadAudio();
+
+                expect(notifyService._textMessageSound.load).toHaveBeenCalled();
+            });
+
+        });
+
         describe('_getNotificationPermission', function () {
             var callbackNotificationPermission;
             beforeEach(function () {

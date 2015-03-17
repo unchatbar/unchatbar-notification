@@ -83,6 +83,22 @@ angular.module('unchatbar-notification')
                     this._streamCallSound.play();
 
                 },
+
+
+                /**
+                 * @ngdoc methode
+                 * @name _getNotificationPermission
+                 * @methodOf unchatbar-notification.Notify
+                 * @description
+                 *
+                 * load audio for mobile browser
+                 *
+                 */
+                loadAudio : function(){
+                    this._streamCallSound.load();
+                    this._textMessageSound.load();
+                },
+
                 /**
                  * @ngdoc methode
                  * @name streamCallStop
