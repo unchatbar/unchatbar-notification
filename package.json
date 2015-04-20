@@ -51,10 +51,10 @@
     "time-grunt": "^0.3.1"
   },
   "devDependencies": {
+    "grunt-bump": "^0.3.0",
     "karma": "^0.12.28",
     "karma-coverage": "^0.2.7",
     "karma-jasmine": "^0.3.5",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "grunt-bump": "^0.3.0"
+    "karma-phantomjs-launcher": "^0.1.4"
   }
 }

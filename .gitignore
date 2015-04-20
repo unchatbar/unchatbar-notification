@@ -5,3 +5,4 @@ app/scripts/constants.js
 bower_components/
 dist/
 node_modules/
+npm-debug.log
